@@ -1,5 +1,5 @@
 -- Create Customer Table
-CREATE TABLE customer (
+CREATE TABLE customers (
     id SERIAL PRIMARY KEY,
     created_date TIMESTAMP NOT NULL,
     last_modified_date TIMESTAMP,
@@ -10,7 +10,7 @@ CREATE TABLE customer (
 );
 
 -- Create WishlistItem Table
-CREATE TABLE wishlist_item (
+CREATE TABLE wishlist_items (
     id SERIAL PRIMARY KEY,
     created_date TIMESTAMP NOT NULL,
     last_modified_date TIMESTAMP,
@@ -19,11 +19,11 @@ CREATE TABLE wishlist_item (
     is_active BOOLEAN DEFAULT TRUE,
     name VARCHAR(255) NOT NULL,
     customer_id BIGINT,
-    FOREIGN KEY (customer_id) REFERENCES customer(id)
+    FOREIGN KEY (customer_id) REFERENCES customers(id)
 );
 
 -- Create Item Table
-CREATE TABLE item (
+CREATE TABLE items (
     id SERIAL PRIMARY KEY,
     created_date TIMESTAMP NOT NULL,
     last_modified_date TIMESTAMP,
@@ -34,7 +34,7 @@ CREATE TABLE item (
 );
 
 -- Create Sale Table with Customer Reference
-CREATE TABLE sale (
+CREATE TABLE sales (
     id SERIAL PRIMARY KEY,
     created_date TIMESTAMP NOT NULL,
     last_modified_date TIMESTAMP,
@@ -45,12 +45,12 @@ CREATE TABLE sale (
     amount DOUBLE PRECISION NOT NULL,
     item_id BIGINT,
     customer_id BIGINT,
-    FOREIGN KEY (item_id) REFERENCES item(id),
-    FOREIGN KEY (customer_id) REFERENCES customer(id)
+    FOREIGN KEY (item_id) REFERENCES items(id),
+    FOREIGN KEY (customer_id) REFERENCES customers(id)
 );
 
 -- Insert initial data into Customer
-INSERT INTO customer (created_date, last_modified_date, created_by, last_modified_by, is_active, name) VALUES
+INSERT INTO customers (created_date, last_modified_date, created_by, last_modified_by, is_active, name) VALUES
 (NOW(), NOW(), 1, 1, TRUE, 'Customer 1'),
 (NOW(), NOW(), 1, 1, TRUE, 'Customer 2'),
 (NOW(), NOW(), 1, 1, TRUE, 'Customer 3'),
@@ -63,7 +63,7 @@ INSERT INTO customer (created_date, last_modified_date, created_by, last_modifie
 (NOW(), NOW(), 1, 1, TRUE, 'Customer 10');
 
 -- Insert initial data into Item
-INSERT INTO item (created_date, last_modified_date, created_by, last_modified_by, is_active, name) VALUES
+INSERT INTO items (created_date, last_modified_date, created_by, last_modified_by, is_active, name) VALUES
 (NOW(), NOW(), 1, 1, TRUE, 'Item 1'),
 (NOW(), NOW(), 1, 1, TRUE, 'Item 2'),
 (NOW(), NOW(), 1, 1, TRUE, 'Item 3'),
@@ -76,7 +76,7 @@ INSERT INTO item (created_date, last_modified_date, created_by, last_modified_by
 (NOW(), NOW(), 1, 1, TRUE, 'Item 10');
 
 -- Insert initial data into WishlistItem
-INSERT INTO wishlist_item (created_date, last_modified_date, created_by, last_modified_by, is_active, name, customer_id) VALUES
+INSERT INTO wishlist_items (created_date, last_modified_date, created_by, last_modified_by, is_active, name, customer_id) VALUES
 (NOW(), NOW(), 1, 1, TRUE, 'Wishlist Item 1', 1),
 (NOW(), NOW(), 1, 1, TRUE, 'Wishlist Item 2', 2),
 (NOW(), NOW(), 1, 1, TRUE, 'Wishlist Item 3', 3),
@@ -89,7 +89,7 @@ INSERT INTO wishlist_item (created_date, last_modified_date, created_by, last_mo
 (NOW(), NOW(), 1, 1, TRUE, 'Wishlist Item 10', 10);
 
 -- Insert initial data into Sale
-INSERT INTO sale (created_date, last_modified_date, created_by, last_modified_by, is_active, date, amount, item_id, customer_id) VALUES
+INSERT INTO sales (created_date, last_modified_date, created_by, last_modified_by, is_active, date, amount, item_id, customer_id) VALUES
 (NOW(), NOW(), 1, 1, TRUE, CURRENT_DATE, 100.0, 1, 1),
 (NOW(), NOW(), 1, 1, TRUE, CURRENT_DATE, 200.0, 2, 2),
 (NOW(), NOW(), 1, 1, TRUE, CURRENT_DATE, 150.0, 3, 3),
