@@ -1,10 +1,7 @@
 package com.wsd.ecommerce.entity;
 
 import com.wsd.ecommerce.common.BaseEntity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -18,7 +15,9 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "wishlist_items")
 public class WishlistItem extends BaseEntity {
-    private String name;
+    @OneToOne
+    @JoinColumn(name = "item_id")
+    private Item item;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")

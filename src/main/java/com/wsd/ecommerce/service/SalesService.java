@@ -26,29 +26,10 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class SalesService {
     private final SaleRepository saleRepository;
-    private final ItemRepository itemRepository;
-    private final CustomerRepository customerRepository;
-    private final WishListItemRepository wishListItemRepository;
-
-    private final CustomerMapper customerMapper;
-    private final WishListItemMapper wishListItemMapper;
-    private final ItemMapper itemMapper;
 
 
-    public List<WishListItemResponse> getWishlist(Long customerId) {
-        Optional<Customer> customerOptional = customerRepository.findById(customerId);
 
-        if (customerOptional.isEmpty()) {
-            // Handle the case when the customer doesn't exist
-            return Collections.emptyList();  // Or throw a custom exception
-        }
 
-        Customer customer = customerOptional.get();
-        List<WishlistItem> wishlistItems = wishListItemRepository.findByCustomerId(customer.getId());
-        return wishlistItems.stream()
-                .map(wishListItemMapper::toWishListItemResponse)
-                .collect(Collectors.toList());
-    }
 
     public Double getTotalSalesToday() {
         List<Sale> sales = saleRepository.findBySaleDate(LocalDate.now());
@@ -64,23 +45,6 @@ public class SalesService {
                 .orElse(0.0);
     }
 
-    public List<ItemResponse> getTopSellingItemsAllTime() {
-        return itemRepository.findTop5SellingItems().stream()
-                .limit(5)
-                .map(itemMapper::toItemResponse)
-                .collect(Collectors.toList());
-    }
 
-    public List<Item> getTopSellingItemsLastMonth() {
-        LocalDate now = LocalDate.now();
-        LocalDate startDate = now.minusMonths(1);
-
-        return itemRepository.findAll().stream()
-                .sorted((i1, i2) -> Long.compare(
-                        i2.getSales().stream().filter(sale -> !sale.getSaleDate().isBefore(startDate) && !sale.getSaleDate().isAfter(now)).count(),
-                        i1.getSales().stream().filter(sale -> !sale.getSaleDate().isBefore(startDate) && !sale.getSaleDate().isAfter(now)).count()))
-                .limit(5)
-                .toList();
-    }
 
 }

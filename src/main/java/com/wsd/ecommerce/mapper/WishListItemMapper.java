@@ -14,11 +14,12 @@ import java.util.List;
 @RequiredArgsConstructor
 public class WishListItemMapper {
 
+    private final ItemMapper itemMapper;
 
     public WishListItemResponse toWishListItemResponse(WishlistItem wishlistItem) {
         return WishListItemResponse.builder()
                 .id(wishlistItem.getId())
-                .name(wishlistItem.getName())
+                .name(itemMapper.toItemResponse(wishlistItem.getItem()).getName())
                 .build();
     }
 }

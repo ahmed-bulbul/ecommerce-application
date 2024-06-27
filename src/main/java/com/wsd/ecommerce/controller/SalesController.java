@@ -13,15 +13,11 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api")
+@RequestMapping("/api/sales")
 public class SalesController {
 
     private final SalesService salesService;
 
-    @GetMapping("/wishlist/{customerId}")
-    public List<WishListItemResponse> getWishlist(@PathVariable Long customerId) {
-        return salesService.getWishlist(customerId);
-    }
 
     @GetMapping("/totalSalesToday")
     public Double getTotalSalesToday() {
@@ -33,13 +29,5 @@ public class SalesController {
         return salesService.getMaxSalesInDateRange(startDate, endDate);
     }
 
-    @GetMapping("/topSellingItemsAllTime")
-    public List<ItemResponse> getTopSellingItemsAllTime() {
-        return salesService.getTopSellingItemsAllTime();
-    }
 
-    @GetMapping("/topSellingItemsLastMonth")
-    public List<Item> getTopSellingItemsLastMonth() {
-        return salesService.getTopSellingItemsLastMonth();
-    }
 }

@@ -9,19 +9,6 @@ CREATE TABLE customers (
     name VARCHAR(255) NOT NULL
 );
 
--- Create WishlistItem Table
-CREATE TABLE wishlist_items (
-    id SERIAL PRIMARY KEY,
-    created_date TIMESTAMP NOT NULL,
-    last_modified_date TIMESTAMP,
-    created_by BIGINT NOT NULL,
-    last_modified_by BIGINT,
-    is_active BOOLEAN DEFAULT TRUE,
-    name VARCHAR(255) NOT NULL,
-    customer_id BIGINT,
-    FOREIGN KEY (customer_id) REFERENCES customers(id)
-);
-
 -- Create Item Table
 CREATE TABLE items (
     id SERIAL PRIMARY KEY,
@@ -32,6 +19,22 @@ CREATE TABLE items (
     is_active BOOLEAN DEFAULT TRUE,
     name VARCHAR(255) NOT NULL
 );
+
+-- Create WishlistItem Table
+CREATE TABLE wishlist_items (
+    id SERIAL PRIMARY KEY,
+    created_date TIMESTAMP NOT NULL,
+    last_modified_date TIMESTAMP,
+    created_by BIGINT NOT NULL,
+    last_modified_by BIGINT,
+    is_active BOOLEAN DEFAULT TRUE,
+    customer_id BIGINT,
+    item_id BIGINT,
+    FOREIGN KEY (customer_id) REFERENCES customers(id),
+    FOREIGN KEY (item_id) REFERENCES items(id)
+);
+
+
 
 -- Create Sale Table with Customer Reference
 CREATE TABLE sales (
@@ -76,17 +79,17 @@ INSERT INTO items (created_date, last_modified_date, created_by, last_modified_b
 (NOW(), NOW(), 1, 1, TRUE, 'Item 10');
 
 -- Insert initial data into WishlistItem
-INSERT INTO wishlist_items (created_date, last_modified_date, created_by, last_modified_by, is_active, name, customer_id) VALUES
-(NOW(), NOW(), 1, 1, TRUE, 'Wishlist Item 1', 1),
-(NOW(), NOW(), 1, 1, TRUE, 'Wishlist Item 2', 2),
-(NOW(), NOW(), 1, 1, TRUE, 'Wishlist Item 3', 3),
-(NOW(), NOW(), 1, 1, TRUE, 'Wishlist Item 4', 4),
-(NOW(), NOW(), 1, 1, TRUE, 'Wishlist Item 5', 5),
-(NOW(), NOW(), 1, 1, TRUE, 'Wishlist Item 6', 6),
-(NOW(), NOW(), 1, 1, TRUE, 'Wishlist Item 7', 7),
-(NOW(), NOW(), 1, 1, TRUE, 'Wishlist Item 8', 8),
-(NOW(), NOW(), 1, 1, TRUE, 'Wishlist Item 9', 9),
-(NOW(), NOW(), 1, 1, TRUE, 'Wishlist Item 10', 10);
+INSERT INTO wishlist_items (created_date, last_modified_date, created_by, last_modified_by, is_active, item_id, customer_id) VALUES
+(NOW(), NOW(), 1, 1, TRUE, 1, 1),
+(NOW(), NOW(), 1, 1, TRUE, 2, 1),
+(NOW(), NOW(), 1, 1, TRUE, 3, 1),
+(NOW(), NOW(), 1, 1, TRUE, 4, 4),
+(NOW(), NOW(), 1, 1, TRUE, 5, 5),
+(NOW(), NOW(), 1, 1, TRUE, 6, 6),
+(NOW(), NOW(), 1, 1, TRUE, 7, 7),
+(NOW(), NOW(), 1, 1, TRUE, 8, 8),
+(NOW(), NOW(), 1, 1, TRUE, 9, 9),
+(NOW(), NOW(), 1, 1, TRUE, 10, 10);
 
 -- Insert initial data into Sale
 INSERT INTO sales (created_date, last_modified_date, created_by, last_modified_by, is_active, sale_date, amount, item_id, customer_id) VALUES
