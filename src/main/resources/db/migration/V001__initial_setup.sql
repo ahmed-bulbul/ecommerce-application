@@ -41,7 +41,7 @@ CREATE TABLE sales (
     created_by BIGINT NOT NULL,
     last_modified_by BIGINT,
     is_active BOOLEAN DEFAULT TRUE,
-    date DATE NOT NULL,
+    sale_date DATE NOT NULL,
     amount DOUBLE PRECISION NOT NULL,
     item_id BIGINT,
     customer_id BIGINT,
@@ -89,7 +89,7 @@ INSERT INTO wishlist_items (created_date, last_modified_date, created_by, last_m
 (NOW(), NOW(), 1, 1, TRUE, 'Wishlist Item 10', 10);
 
 -- Insert initial data into Sale
-INSERT INTO sales (created_date, last_modified_date, created_by, last_modified_by, is_active, date, amount, item_id, customer_id) VALUES
+INSERT INTO sales (created_date, last_modified_date, created_by, last_modified_by, is_active, sale_date, amount, item_id, customer_id) VALUES
 (NOW(), NOW(), 1, 1, TRUE, CURRENT_DATE, 100.0, 1, 1),
 (NOW(), NOW(), 1, 1, TRUE, CURRENT_DATE, 200.0, 2, 2),
 (NOW(), NOW(), 1, 1, TRUE, CURRENT_DATE, 150.0, 3, 3),

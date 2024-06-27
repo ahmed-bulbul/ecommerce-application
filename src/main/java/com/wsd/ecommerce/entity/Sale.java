@@ -20,8 +20,9 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "sales")
 public class Sale extends BaseEntity {
-    private LocalDate date;
     private Double amount;
+
+    private LocalDate saleDate;
 
     @ManyToOne
     @JoinColumn(name = "item_id")
