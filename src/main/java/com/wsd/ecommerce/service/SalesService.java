@@ -5,7 +5,9 @@ import com.wsd.ecommerce.entity.Item;
 import com.wsd.ecommerce.entity.Sale;
 import com.wsd.ecommerce.entity.WishlistItem;
 import com.wsd.ecommerce.mapper.CustomerMapper;
+import com.wsd.ecommerce.mapper.ItemMapper;
 import com.wsd.ecommerce.mapper.WishListItemMapper;
+import com.wsd.ecommerce.payload.response.ItemResponse;
 import com.wsd.ecommerce.payload.response.WishListItemResponse;
 import com.wsd.ecommerce.repository.CustomerRepository;
 import com.wsd.ecommerce.repository.ItemRepository;
@@ -30,6 +32,7 @@ public class SalesService {
 
     private final CustomerMapper customerMapper;
     private final WishListItemMapper wishListItemMapper;
+    private final ItemMapper itemMapper;
 
 
     public List<WishListItemResponse> getWishlist(Long customerId) {
@@ -48,7 +51,7 @@ public class SalesService {
     }
 
     public Double getTotalSalesToday() {
-        List<Sale> sales = saleRepository.findByCreatedDate(LocalDate.now());
+        List<Sale> sales = saleRepository.findBySaleDate(LocalDate.now());
         return sales.stream().mapToDouble(Sale::getAmount).sum();
     }
 
@@ -61,12 +64,11 @@ public class SalesService {
                 .orElse(0.0);
     }
 
-    public List<Item> getTopSellingItemsAllTime() {
-        return itemRepository.findAll().stream()
-                .sorted((i1, i2) -> Double.compare(i2.getSales().stream().mapToDouble(Sale::getAmount).sum(),
-                        i1.getSales().stream().mapToDouble(Sale::getAmount).sum()))
+    public List<ItemResponse> getTopSellingItemsAllTime() {
+        return itemRepository.findTop5SellingItems().stream()
                 .limit(5)
-                .toList();
+                .map(itemMapper::toItemResponse)
+                .collect(Collectors.toList());
     }
 
     public List<Item> getTopSellingItemsLastMonth() {

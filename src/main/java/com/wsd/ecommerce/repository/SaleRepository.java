@@ -10,5 +10,6 @@ import java.util.List;
 
 @Repository
 public interface SaleRepository extends JpaRepository<Sale,Long> {
-    List<Sale> findByCreatedDate(LocalDate now);
+
+    List<Sale> findBySaleDate(LocalDate now);
 }
