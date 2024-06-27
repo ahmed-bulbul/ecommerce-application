@@ -16,10 +16,10 @@ import java.util.List;
 @RequestMapping("/api/wishlistItem")
 public class WishListItemController {
 
-    private final WishlistItemService salesService;
+    private final WishlistItemService wishlistItemService;
 
     @GetMapping("/wishlist/{customerId}")
     public List<WishListItemResponse> getWishlist(@PathVariable Long customerId) {
-        return salesService.getWishlist(customerId);
+        return wishlistItemService.getWishlist(customerId);
     }
 }

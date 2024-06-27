@@ -28,4 +28,6 @@ public class SalesResponse {
     private Long createdBy;
     private Long lastModifiedBy;
     private Boolean isActive;
+
+
 }

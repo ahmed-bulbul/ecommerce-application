@@ -9,8 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -21,11 +21,14 @@ public class ItemService {
     private final ItemMapper itemMapper;
 
     public List<ItemResponse> getTopSellingItemsAllTime() {
-        return itemRepository.findTop5SellingItems().stream()
+        List<Item> items = itemRepository.findAll();
+        return items.stream()
+                .sorted((i1, i2) -> Long.compare(i2.getSales().size(), i1.getSales().size()))
                 .limit(5)
                 .map(itemMapper::toItemResponse)
-                .collect(Collectors.toList());
+                .toList();
     }
+
 
     public List<ItemResponse> getTopSellingItemsLastMonth() {
         LocalDate now = LocalDate.now();

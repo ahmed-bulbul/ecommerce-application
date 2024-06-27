@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -20,4 +21,6 @@ public class ItemResponse {
     private Long createdBy;
     private Long lastModifiedBy;
     private Boolean isActive;
+    private List<SalesResponse> sales;
+
 }
