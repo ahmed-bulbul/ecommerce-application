@@ -1,2 +1,0 @@
-24-06-28 11:38:19.355 [http-nio-8082-exec-3] INFO  c.wsd.ecommerce.service.ItemService - Fetching top selling item last month 
-24-06-28 11:38:32.691 [http-nio-8082-exec-5] INFO  c.wsd.ecommerce.service.ItemService - Fetching top selling item last month 
