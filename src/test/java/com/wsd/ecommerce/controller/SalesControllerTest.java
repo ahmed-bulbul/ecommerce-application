@@ -1,7 +1,5 @@
 package com.wsd.ecommerce.controller;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import com.wsd.ecommerce.service.SalesService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

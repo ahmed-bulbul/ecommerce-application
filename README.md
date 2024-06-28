@@ -16,7 +16,7 @@ This a E-commerce Application That is Based on Spring boot Framework
 3. Log visualization 
 4. Exception handling
 5. flyway for database migration
-
+6. Dockerized the application
 
 
 

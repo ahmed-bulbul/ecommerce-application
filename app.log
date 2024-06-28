@@ -1,2 +1,49 @@
 24-06-28 11:49:20.782 [http-nio-8082-exec-5] INFO  c.wsd.ecommerce.service.ItemService - Fetching top 5 selling items all time 
 24-06-28 11:49:30.546 [http-nio-8082-exec-6] INFO  c.wsd.ecommerce.service.ItemService - Fetching top 5 selling items all time 
+24-06-28 11:56:10.364 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.wsd.ecommerce.controller.ItemControllerTest]: ItemControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration. 
+24-06-28 11:56:10.553 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.wsd.ecommerce.EcommerceApplication for test class com.wsd.ecommerce.controller.ItemControllerTest 
+24-06-28 11:56:10.982 [main] INFO  c.w.e.controller.ItemControllerTest - Starting ItemControllerTest using Java 17.0.9 with PID 7096 (started by atl in D:\Self-Development\Job Interview\wsd\ecommerce-application) 
+24-06-28 11:56:10.983 [main] INFO  c.w.e.controller.ItemControllerTest - The following 1 profile is active: "dev" 
+24-06-28 11:56:11.652 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
+24-06-28 11:56:11.727 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 65 ms. Found 4 JPA repository interfaces. 
+24-06-28 11:56:12.211 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting... 
+24-06-28 11:56:12.351 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@491cafec 
+24-06-28 11:56:12.353 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed. 
+24-06-28 11:56:12.437 [main] INFO  o.f.c.i.license.VersionPrinter - Flyway Community Edition 9.22.3 by Redgate 
+24-06-28 11:56:12.438 [main] INFO  o.f.c.i.license.VersionPrinter - See release notes here: https://rd.gt/416ObMi 
+24-06-28 11:56:12.438 [main] INFO  o.f.c.i.license.VersionPrinter -  
+24-06-28 11:56:12.454 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://localhost:5432/wsd-ecommerce (PostgreSQL 10.22) 
+24-06-28 11:56:12.504 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 1 migration (execution time 00:00.030s) 
+24-06-28 11:56:12.516 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema "public": 001 
+24-06-28 11:56:12.520 [main] INFO  o.f.core.internal.command.DbMigrate - Schema "public" is up to date. No migration necessary. 
+24-06-28 11:56:12.648 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default] 
+24-06-28 11:56:12.729 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.1.Final 
+24-06-28 11:56:12.780 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled 
+24-06-28 11:56:13.107 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer 
+24-06-28 11:56:13.164 [main] WARN  org.hibernate.dialect.Dialect - HHH000511: The 10.22.0 version for [org.hibernate.dialect.PostgreSQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 12.0.0. Check the community dialects project for available legacy versions. 
+24-06-28 11:56:13.170 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default) 
+24-06-28 11:56:14.109 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration) 
+24-06-28 11:56:14.111 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default' 
+24-06-28 11:56:14.434 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used. 
+24-06-28 11:56:15.251 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning 
+24-06-28 11:56:15.998 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet '' 
+24-06-28 11:56:15.999 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet '' 
+24-06-28 11:56:16.000 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms 
+24-06-28 11:56:16.059 [main] INFO  c.w.e.controller.ItemControllerTest - Started ItemControllerTest in 5.334 seconds (process running for 7.627) 
+24-06-28 11:56:16.912 [main] INFO  o.s.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet '' 
+24-06-28 11:56:16.913 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet '' 
+24-06-28 11:56:16.914 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms 
+24-06-28 11:56:17.374 [main] INFO  o.s.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet '' 
+24-06-28 11:56:17.375 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet '' 
+24-06-28 11:56:17.375 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms 
+24-06-28 11:56:17.407 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default' 
+24-06-28 11:56:17.410 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated... 
+24-06-28 11:56:17.421 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed. 
+24-06-28 11:56:38.231 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.wsd.ecommerce.controller.WishListItemControllerTest]: WishListItemControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration. 
+24-06-28 11:56:38.385 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.wsd.ecommerce.EcommerceApplication for test class com.wsd.ecommerce.controller.WishListItemControllerTest 
+24-06-28 11:56:38.723 [main] INFO  c.w.e.c.WishListItemControllerTest - Starting WishListItemControllerTest using Java 17.0.9 with PID 15888 (started by atl in D:\Self-Development\Job Interview\wsd\ecommerce-application) 
+24-06-28 11:56:38.724 [main] INFO  c.w.e.c.WishListItemControllerTest - The following 1 profile is active: "dev" 
+24-06-28 11:56:41.062 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet '' 
+24-06-28 11:56:41.062 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet '' 
+24-06-28 11:56:41.065 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 2 ms 
+24-06-28 11:56:41.119 [main] INFO  c.w.e.c.WishListItemControllerTest - Started WishListItemControllerTest in 2.657 seconds (process running for 3.984) 
